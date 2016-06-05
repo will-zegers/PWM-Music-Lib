@@ -2,11 +2,12 @@
 #define TONE_H
 
 #define CPU_FREQ 1000000000
-#define TEMPO 172
+#define TEMPO    200
 
 typedef enum beat {
 	WHOLE     = 60000000 / TEMPO,
 	HALF      = 60000000 / (TEMPO*2),
+	TRIP      = 60000000 / (TEMPO*3),
 	QUARTER   = 60000000 / (TEMPO*4),
 	EIGHTH    = 60000000 / (TEMPO*8),
 	SIXTEENTH = 60000000 / (TEMPO*16),
@@ -20,8 +21,11 @@ typedef enum tone {
 	E4  = CPU_FREQ/329,
 	G4  = CPU_FREQ/392,
 	A4  = CPU_FREQ/440,
+	As4 = CPU_FREQ/466,
+	B4  = CPU_FREQ/493,
 	C5  = CPU_FREQ/523,
 	Cs5 = CPU_FREQ/554,
+	D5  = CPU_FREQ/587,
 	E5  = CPU_FREQ/659,
 	F5  = CPU_FREQ/699,
 	G5  = CPU_FREQ/785,
