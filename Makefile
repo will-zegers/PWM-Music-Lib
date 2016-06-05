@@ -1,5 +1,5 @@
 CC=gcc
-SOURCES=main.c tone.c
+SOURCES=main.c tone/tone.c
 EXECUTABLE=pwmSong
 
 all:

@@ -2,11 +2,36 @@
 #include "stdio.h"
 #include "tone.h"
 
-FILE *period, *duty_cycle, *enable, *disable;
+FILE *period, *duty_cycle, *enable;
 
 void error(char *msg) {
 	perror(msg);
 	exit(1);
+}
+
+void init() {
+	if ( (period = fopen("/sys/class/pwm/pwmchip0/pwm0/period", "w+") ) == NULL)
+		error("fopen:period");
+	if ( (duty_cycle = fopen("/sys/class/pwm/pwmchip0/pwm0/duty_cycle", "w+") ) == NULL)
+		error("fopen:duty_cycle");
+	if ( (enable = fopen("/sys/class/pwm/pwmchip0/pwm0/enable", "w+") ) == NULL)
+		error("fopen:enable");
+
+	if ( (fprintf(enable, "0") ) < 0)
+		error("fprintf");
+	fflush(enable);
+}
+
+void cleanUp() {
+	fclose(period);
+	fclose(duty_cycle);
+	fclose(enable);
+}
+
+void rest() {
+	if ( (fprintf(enable, "0") ) < 0)
+		error("fprintf");
+	fflush(enable);
 }
 
 void stopTone() {
@@ -14,12 +39,6 @@ void stopTone() {
 		error("fprintf");
 	fflush(enable);
 	usleep(75000);
-}
-
-void rest() {
-	if ( (fprintf(enable, "0") ) < 0)
-		error("fprintf");
-	fflush(enable);
 }
 
 void playTone(Tone tone) {
@@ -53,23 +72,3 @@ void playSong(Note *song, int arrSize) {
 		stopTone();
 	}
 }
-
-void init() {
-	if ( (period = fopen("/sys/class/pwm/pwmchip0/pwm0/period", "w+") ) == NULL)
-		error("fopen:period");
-	if ( (duty_cycle = fopen("/sys/class/pwm/pwmchip0/pwm0/duty_cycle", "w+") ) == NULL)
-		error("fopen:duty_cycle");
-	if ( (enable = fopen("/sys/class/pwm/pwmchip0/pwm0/enable", "w+") ) == NULL)
-		error("fopen:enable");
-
-	if ( (fprintf(enable, "0") ) < 0)
-		error("fprintf");
-	fflush(enable);
-}
-
-void cleanUp() {
-	fclose(period);
-	fclose(duty_cycle);
-	fclose(enable);
-}
-
