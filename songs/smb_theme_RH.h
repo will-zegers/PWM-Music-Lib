@@ -249,8 +249,8 @@ Note song[1024] = {
 	{.tone = E5,  .beat = QUARTER},
 	{.tone = C5,  .beat = QUARTER},
 	{.tone = R,   .beat = QUARTER},
-	{.tone = A5,  .beat = QUARTER},
-	{.tone = G5,  .beat = QUARTER},
+	{.tone = A4,  .beat = QUARTER},
+	{.tone = G4,  .beat = QUARTER},
 	{.tone = R,   .beat = QUARTER},
 	{.tone = R,   .beat = HALF},
 /**************************************/ 
@@ -338,8 +338,8 @@ Note song[1024] = {
 	{.tone = R,   .beat = HALF   },
 /*D************************************/
 /*43***********************************/
+	{.tone = E5,  .beat = QUARTER},
 	{.tone = C5,  .beat = QUARTER},
-	{.tone = A4,  .beat = QUARTER},
 	{.tone = R,   .beat = QUARTER},
 	{.tone = G4,  .beat = QUARTER},
 	{.tone = R,   .beat = HALF},
@@ -369,8 +369,8 @@ Note song[1024] = {
 	{.tone = R,   .beat = QUARTER},
 	{.tone = R,   .beat = HALF},
 /*47*********************************/
+	{.tone = E5,  .beat = QUARTER},
 	{.tone = C5,  .beat = QUARTER},
-	{.tone = A4,  .beat = QUARTER},
 	{.tone = R,   .beat = QUARTER},
 	{.tone = G4,  .beat = QUARTER},
 	{.tone = R,   .beat = HALF},
@@ -393,7 +393,7 @@ Note song[1024] = {
 	{.tone = E5,  .beat = TRIP},
 	{.tone = D5,  .beat = TRIP},
 /**************************************/
-	{.tone = A4,  .beat = QUARTER},
+	{.tone = C5,  .beat = QUARTER},
 	{.tone = E3,  .beat = QUARTER},
 	{.tone = R,   .beat = QUARTER},
 	{.tone = E3,  .beat = QUARTER},
@@ -401,8 +401,8 @@ Note song[1024] = {
 	{.tone = R,   .beat = QUARTER},
 	{.tone = R,   .beat = HALF},
 /*51***********************************/
+	{.tone = E5,  .beat = QUARTER},
 	{.tone = C5,  .beat = QUARTER},
-	{.tone = A4,  .beat = QUARTER},
 	{.tone = R,   .beat = QUARTER},
 	{.tone = G4,  .beat = QUARTER},
 	{.tone = R,   .beat = HALF},
@@ -432,8 +432,8 @@ Note song[1024] = {
 	{.tone = R,   .beat = QUARTER},
 	{.tone = R,   .beat = HALF},
 /*55*********************************/
+	{.tone = E5,  .beat = QUARTER},
 	{.tone = C5,  .beat = QUARTER},
-	{.tone = A4,  .beat = QUARTER},
 	{.tone = R,   .beat = QUARTER},
 	{.tone = G4,  .beat = QUARTER},
 	{.tone = R,   .beat = HALF},
@@ -456,7 +456,7 @@ Note song[1024] = {
 	{.tone = E5,  .beat = TRIP},
 	{.tone = D5,  .beat = TRIP},
 /**************************************/
-	{.tone = A4,  .beat = QUARTER},
+	{.tone = C5,  .beat = QUARTER},
 	{.tone = E3,  .beat = QUARTER},
 	{.tone = R,   .beat = QUARTER},
 	{.tone = E3,  .beat = QUARTER},
@@ -477,8 +477,8 @@ Note song[1024] = {
 	{.tone = E5,  .beat = QUARTER},
 	{.tone = C5,  .beat = QUARTER},
 	{.tone = R,   .beat = QUARTER},
-	{.tone = A5,  .beat = QUARTER},
-	{.tone = G5,  .beat = QUARTER},
+	{.tone = A4,  .beat = QUARTER},
+	{.tone = G4,  .beat = QUARTER},
 	{.tone = R,   .beat = QUARTER},
 	{.tone = R,   .beat = HALF},
 /**************************************/
@@ -505,8 +505,8 @@ Note song[1024] = {
 	{.tone = E5,  .beat = QUARTER},
 	{.tone = C5,  .beat = QUARTER},
 	{.tone = R,   .beat = QUARTER},
-	{.tone = A5,  .beat = QUARTER},
-	{.tone = G5,  .beat = QUARTER},
+	{.tone = A4,  .beat = QUARTER},
+	{.tone = G4,  .beat = QUARTER},
 	{.tone = R,   .beat = QUARTER},
 	{.tone = R,   .beat = HALF},
 /**************************************/ 
@@ -557,9 +557,9 @@ Note song[1024] = {
 	{.tone = G4,  .beat = QUARTER},
 	{.tone = R,   .beat = QUARTER},
 	{.tone = R,   .beat = HALF},
-/*47*********************************/
+/*71*********************************/
+	{.tone = E5,  .beat = QUARTER},
 	{.tone = C5,  .beat = QUARTER},
-	{.tone = A4,  .beat = QUARTER},
 	{.tone = R,   .beat = QUARTER},
 	{.tone = G4,  .beat = QUARTER},
 	{.tone = R,   .beat = HALF},
@@ -582,7 +582,7 @@ Note song[1024] = {
 	{.tone = E5,  .beat = TRIP},
 	{.tone = D5,  .beat = TRIP},
 /**************************************/
-	{.tone = A4,  .beat = QUARTER},
+	{.tone = C5,  .beat = QUARTER},
 	{.tone = E3,  .beat = QUARTER},
 	{.tone = R,   .beat = QUARTER},
 	{.tone = E3,  .beat = QUARTER},

@@ -4,6 +4,12 @@
 #define CPU_FREQ 1000000000
 #define TEMPO    200
 
+typedef enum timing {
+	THREEFOUR = 4,
+	FOURFOUR = 3,
+	SIXEIGHT = 6,
+}
+
 typedef enum beat {
 	WHOLE     = 60000000 / TEMPO,
 	HALF      = 60000000 / (TEMPO*2),

@@ -1,0 +1,38 @@
+#/bin/bash
+
+CLK_FREQ=1000000000
+
+if [ $# -lt 4 ]; then
+	echo "usage: enable_pwm <header> <pin> <pwmchip#> <pwm#>"
+	echo "example: ./enable pwm 9 22 0 0"
+	exit 2
+fi
+
+HEADER=$1
+PIN=$2
+CHIP=$3
+PWM=$4
+
+CHIPDIR="/sys/class/pwm/pwmchip$CHIP"
+PWMDIR=pwm$PWM
+
+PIN_FULL=P$HEADER.$PIN
+A4=$[$CLK_FREQ/880]
+DUTY_CYCLE=$[$CLK_FREQ/1760]
+
+if [ ! -d $CHIPDIR/$PWMDIR ]; then
+        sudo sh -c "echo $PWM > $CHIPDIR/export"
+        config-pin $PIN_FULL pwm
+fi
+
+sudo sh -c "echo $A4 > $CHIPDIR/$PWMDIR/period"
+sudo sh -c "echo $DUTY_CYCLE > $CHIPDIR/$PWMDIR/duty_cycle"
+sudo sh -c "echo 1 > $CHIPDIR/$PWMDIR/enable"
+sleep 0.10
+sudo sh -c "echo 0 > $CHIPDIR/$PWMDIR/enable"
+sleep 0.05
+sudo sh -c "echo 1 > $CHIPDIR/$PWMDIR/enable"
+sleep 0.10
+sudo sh -c "echo 0 > $CHIPDIR/$PWMDIR/enable"
+
+echo "PWM on pin $PIN_FULL ready to go! (If you heard a tone :/)"
