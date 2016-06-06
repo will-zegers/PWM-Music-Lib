@@ -1,11 +1,11 @@
 package main
 
 import (
-	t "tone/src/tone"
+	t "./tone"
 )
 
 import "C"
 
 func main() {
-	t.PlaySong(t.GetSong() )
+	t.PlaySong(t.GetSong(), nil )
 }
