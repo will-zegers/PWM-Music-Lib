@@ -1,14 +1,30 @@
 #/bin/bash
 
+CLK_FREQ=1000000000
+
 HEADER="9"
 PIN="22"
 PWMDIR="/sys/class/pwm/pwmchip0/pwm0"
 
 PIN_FULL=P$HEADER.$PIN
+A4=$[$CLK_FREQ/880]
+DUTY_CYCLE=$[$CLK_FREQ/1760]
 
 if [ ! -d $PWMDIR ]; then
-	sudo sh -c "echo 0 > /sys/class/pwm/pwmchip0/export"
-	config-pin $PIN_FULL pwm
+        sudo sh -c "echo 0 > /sys/class/pwm/pwmchip0/export"
+        config-pin $PIN_FULL pwm
 fi
 
-echo "PWM on pin $PIN_FULL ready to go!"
+echo "Testing..."
+sudo sh -c "echo $A4 > $PWMDIR/period"
+sudo sh -c "echo $DUTY_CYCLE > $PWMDIR/duty_cycle"
+sudo sh -c "echo 1 > $PWMDIR/enable"
+sleep 0.10
+sudo sh -c "echo 0 > $PWMDIR/enable"
+sleep0.05
+sudo sh -c "echo 1 > $PWMDIR/enable"
+sleep 0.10
+sudo sh -c "echo 0 > $PWMDIR/enable"
+
+echo "PWM on pin $PIN_FULL ready to go! (If you heard a tone :/)"
+
