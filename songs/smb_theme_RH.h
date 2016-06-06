@@ -137,7 +137,7 @@ Note song[1024] = {
 	{.tone = Ds5, .beat = QUARTER},
 	{.tone = R,   .beat = QUARTER},
 	{.tone = R,   .beat = QUARTER},
-	{.tone = Ds5, .beat = QUARTER},
+	{.tone = D5, .beat = QUARTER},
 	{.tone = R,   .beat = HALF   },
 /**************************************/
 	{.tone = C5,  .beat = QUARTER},
