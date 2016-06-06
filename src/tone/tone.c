@@ -60,7 +60,6 @@ void playNote(Note note) {
 		rest();
 	else
 		playTone(note.tone);
-	printf("%d\r\n", note.tone);
 	usleep(note.beat);
 }
 
