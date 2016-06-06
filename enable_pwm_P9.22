@@ -1,5 +1,14 @@
 #/bin/bash
 
-sudo sh -c "echo 0 > /sys/class/pwm/pwmchip0/export"
+HEADER="9"
+PIN="22"
+PWMDIR="/sys/class/pwm/pwmchip0/pwm0"
 
-config-pin P9.22 pwm
+PIN_FULL=P$HEADER.$PIN
+
+if [ ! -d $PWMDIR ]; then
+	sudo sh -c "echo 0 > /sys/class/pwm/pwmchip0/export"
+	config-pin $PIN_FULL pwm
+fi
+
+echo "PWM on pin $PIN_FULL ready to go!"

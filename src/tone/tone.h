@@ -20,16 +20,20 @@ typedef enum tone {
 	C4  = CPU_FREQ/261,
 	E4  = CPU_FREQ/329,
 	G4  = CPU_FREQ/392,
+	Gs4 = CPU_FREQ/415,
 	A4  = CPU_FREQ/440,
 	As4 = CPU_FREQ/466,
 	B4  = CPU_FREQ/493,
 	C5  = CPU_FREQ/523,
 	Cs5 = CPU_FREQ/554,
 	D5  = CPU_FREQ/587,
+	Ds5 = CPU_FREQ/622,
 	E5  = CPU_FREQ/659,
 	F5  = CPU_FREQ/699,
+	Fs5 = CPU_FREQ/740,
 	G5  = CPU_FREQ/785,
 	A5  = CPU_FREQ/880,
+	C6  = CPU_FREQ/1046,
 	END = -42
 } Tone;
 
@@ -40,16 +44,13 @@ typedef struct note {
 
 void error(char *msg);
 
-void stopTone();
-
-void rest();
-
-void playTone(Tone);
-
-void playNote(Note);
-void playSong(Note *, int);
-
 void init();
 void cleanUp();
+
+void rest();
+void stopTone();
+void playTone(Tone);
+void playNote(Note);
+void playSong(Note *, int);
 
 #endif
