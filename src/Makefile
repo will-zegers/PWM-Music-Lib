@@ -6,4 +6,4 @@ all:
 	$(CC) $(SOURCES) -o $(EXECUTABLE)
 
 clean:
-	rm pwmSong
+	rm pwmSong main

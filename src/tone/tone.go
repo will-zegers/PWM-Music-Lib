@@ -8,11 +8,11 @@ func init() {
 	C.init()
 }
 
-func GetSong() [256]C.struct_note {
+func GetSong() [1024]C.struct_note {
 	return C.song
 }
 
-func PlaySong(song [256]C.struct_note) {
+func PlaySong(song [1024]C.struct_note) {
 	for _,note := range song {
 		if (note.tone == C.END) { break }
 		C.playNote(note)

@@ -1,7 +1,7 @@
 package main
 
 import (
-	t "tone/tone"
+	t "tone/src/tone"
 )
 
 import "C"
