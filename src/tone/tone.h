@@ -1,29 +1,21 @@
 #ifndef TONE_H
 #define TONE_H
 
+#include "tempo.h"
+
 #define CPU_FREQ 1000000000
-#define TEMPO    200
-
-typedef enum timing {
-	THREEFOUR = 4,
-	FOURFOUR = 3,
-	SIXEIGHT = 6,
-}
-
-typedef enum beat {
-	WHOLE     = 60000000 / TEMPO,
-	HALF      = 60000000 / (TEMPO*2),
-	TRIP      = 60000000 / (TEMPO*3),
-	QUARTER   = 60000000 / (TEMPO*4),
-	EIGHTH    = 60000000 / (TEMPO*8),
-	SIXTEENTH = 60000000 / (TEMPO*16),
-} Beat;
 
 typedef enum tone {
+	PASS = -1,
 	R   = 0,
 	C2  = CPU_FREQ/65,
+	D2  = CPU_FREQ/73,
+	E2  = CPU_FREQ/82,
+	F2  = CPU_FREQ/87,
 	G2  = CPU_FREQ/98,
 	Gs2 = CPU_FREQ/104,
+	A2  = CPU_FREQ/110,
+	As2 = CPU_FREQ/117,
 	C3  = CPU_FREQ/131,
 	Ds3 = CPU_FREQ/155,
 	D3  = CPU_FREQ/147,

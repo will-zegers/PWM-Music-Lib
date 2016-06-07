@@ -56,19 +56,24 @@ void playTone(Tone tone) {
 }
 
 void playNote(Note note) {
-	if (note.tone == R)
-		rest();
-	else
-		playTone(note.tone);
-	usleep(note.beat);
+	if (note.tone != PASS) {
+		if (note.tone == R)
+			rest();
+		else
+			playTone(note.tone);
+		
+		usleep(note.beat);
+	}
 }
 
 void playSong(Note *song, int arrSize) {
 	int i = 0;
 	while(i < arrSize / sizeof(Note) ) {
+		stopTone();
 		if (song[i].tone == END) 
 			break;
 		playNote(song[i++]);
-		stopTone();
 	}
+	printf("%d\r\n", i);
+	stopTone();
 }

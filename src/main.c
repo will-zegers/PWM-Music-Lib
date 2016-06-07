@@ -1,7 +1,7 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "tone/tone.h"
-#include "melody.h"
+#include "tone/melody.h"
 
 int main(int argc, char* argv[]) {
 
