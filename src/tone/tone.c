@@ -29,27 +29,22 @@ void cleanUp() {
 }
 
 void rest() {
-	if ( (fprintf(enable, "0") ) < 0)
-		error("fprintf");
+	fprintf(enable, "0");
 	fflush(enable);
 }
 
 void stopTone() {
-	if ( (fprintf(enable, "0") ) < 0)
-		error("fprintf");
+	fprintf(enable, "0");
 	fflush(enable);
-	usleep(75000);
+
+	usleep(50000);
 }
 
 void playTone(Tone tone) {
-	if ( (fprintf(period, "%d", tone) ) < 0)
-		error("fprintf");
+	fprintf(period, "%d", tone);
+	fprintf(duty_cycle, "%d", (tone)/2);
+	fprintf(enable, "1");
 
-	if ( (fprintf(duty_cycle, "%d", (tone)/2) ) < 0)
-		error("fprintf");
-
-	if ( (fprintf(enable, "1") ) < 0)
-		error("fprintf");
 	fflush(duty_cycle);
 	fflush(period);
 	fflush(enable);
@@ -66,14 +61,17 @@ void playNote(Note note) {
 	}
 }
 
-void playSong(Note *song, int arrSize) {
-	int i = 0;
-	while(i < arrSize / sizeof(Note) ) {
+void playSong(Note *song) {
+	playSongAt(0, song);
+}
+
+void playSongAt(int idx, Note *song) {
+	while(1) {
 		stopTone();
-		if (song[i].tone == END) 
+		if (song[idx].tone == END) {
 			break;
-		playNote(song[i++]);
+		}
+		playNote(song[idx++]);
 	}
-	printf("%d\r\n", i);
 	stopTone();
 }

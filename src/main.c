@@ -7,7 +7,7 @@ int main(int argc, char* argv[]) {
 
 	init();
 
-	playSong(song, sizeof(song) );
+	playSong(song);
 	
 	cleanUp();
 

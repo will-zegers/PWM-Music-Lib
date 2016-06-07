@@ -1,21 +1,20 @@
 package tone
 
 // #include "tone.h"
-// #include "../melody.h"
+// #include "melody.h"
 // #include "unistd.h"
 import "C"
 
-import (
-	"net"
-	"encoding/binary"
-)
-
-func init() {
+func ini() {
 	C.init()
 }
 
-func GetSong() [1024]C.struct_note {
+func GetSong() []C.struct_note {
 	return C.song
+}
+
+func GetSongAt(idx int) []C.struct_note {
+	return C.song[idx:]
 }
 
 func PlayNote(idx int) {
@@ -26,23 +25,12 @@ func PlayNote(idx int) {
 		C.playTone( (note.tone) )
 	}
 	C.usleep( C.__useconds_t(note.beat) )
-	C.stopTone()
 }
 
-func PlaySong(song [1024]C.struct_note, Conn *net.UDPConn) {
-	for i,note := range song {
-		if (note.tone == C.END) { break }
-		if (note.tone == C.R) {
-			C.rest() 
-		} else {
-			C.playTone(note.tone)
-		}
-		go func() {
-			buf := make([]byte, 64)
-			binary.PutVarint(buf, int64(i) )
-			Conn.Write(buf)
-		}()
-		C.usleep( C.__useconds_t(note.beat) )
+func PlaySong(song []C.struct_note) {
+	for _,note := range song {
 		C.stopTone()
+		C.playNote(note)
 	}
+	C.stopTone()
 }

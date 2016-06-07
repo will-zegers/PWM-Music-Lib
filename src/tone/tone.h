@@ -28,9 +28,12 @@ typedef enum tone {
 	As3 = CPU_FREQ/233,
 	B3  = CPU_FREQ/247,
 	C4  = CPU_FREQ/261,
+	Cs4 = CPU_FREQ/277,
 	D4  = CPU_FREQ/294,
-	E4  = CPU_FREQ/329,
+	Ds4 = CPU_FREQ/311,
+	E4  = CPU_FREQ/330,
 	F4  = CPU_FREQ/349,
+	Fs4 = CPU_FREQ/369,
 	G4  = CPU_FREQ/392,
 	Gs4 = CPU_FREQ/415,
 	A4  = CPU_FREQ/440,
@@ -63,6 +66,7 @@ void rest();
 void stopTone();
 void playTone(Tone);
 void playNote(Note);
-void playSong(Note *, int);
+void playSong(Note *);
+void playSongAt(int, Note *);
 
 #endif

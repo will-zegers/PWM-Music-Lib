@@ -180,8 +180,6 @@ Note song[1024] = {
 	{.tone = PASS},
 	{.tone = PASS},
 	{.tone = PASS},
-/***********************************/
 
 	{.tone = END}
-
 };
