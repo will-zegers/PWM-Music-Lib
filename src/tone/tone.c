@@ -37,7 +37,7 @@ void stopTone() {
 	fprintf(enable, "0");
 	fflush(enable);
 
-	usleep(50000);
+	usleep(PAUSE);
 }
 
 void playTone(Tone tone) {
@@ -58,6 +58,7 @@ void playNote(Note note) {
 			playTone(note.tone);
 		
 		usleep(note.beat);
+		stopTone();
 	}
 }
 
@@ -67,7 +68,6 @@ void playSong(Note *song) {
 
 void playSongAt(int idx, Note *song) {
 	while(1) {
-		stopTone();
 		if (song[idx].tone == END) {
 			break;
 		}
